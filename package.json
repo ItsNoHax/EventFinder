@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "hoist-non-react-statics": "^3.0.1",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "16.4.1",
     "react-native": "0.56.0",
@@ -19,7 +20,8 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "unsplash-js": "^4.8.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",

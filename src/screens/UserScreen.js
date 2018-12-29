@@ -3,13 +3,11 @@ import { Navigation } from 'react-native-navigation';
 import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getEvents } from '../selectors/eventSelectors';
 import commonStyles from '../styles/common';
 
-class MapScreen extends Component {
+class UserScreen extends Component {
 
   static propTypes = {
-    events: PropTypes.instanceOf(Array).isRequired,
   }
 
   constructor(props) {
@@ -23,7 +21,6 @@ class MapScreen extends Component {
   }
 
   render() {
-    const { events } = this.props;
     return (
       <SafeAreaView style={commonStyles.flexContainer} />
     );
@@ -32,11 +29,10 @@ class MapScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-  events: getEvents(state),
 });
 
 const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(UserScreen);

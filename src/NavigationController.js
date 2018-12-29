@@ -28,37 +28,37 @@ export const setInitialLayout = () => {
 
   Navigation.setDefaultOptions(defaultOptions);
 
-  const favouritesTab = {
+  const tabOne = {
     stack: {
       children: [
         {
           component: {
-            name: 'imago.FavouriteScreen',
+            name: 'imago.GalleryScreen',
           },
         },
       ],
       options: {
         bottomTab: {
-          text: 'Favourites',
-          icon: loadedIconsMap.heart,
+          text: 'Gallery',
+          icon: loadedIconsMap.trending,
         },
       },
     },
   };
 
-  const mapTab = {
+  const tabTwo = {
     stack: {
       children: [
         {
           component: {
-            name: 'imago.MapScreen',
+            name: 'imago.UserScreen',
           },
         },
       ],
       options: {
         bottomTab: {
-          text: 'Map',
-          icon: loadedIconsMap.map,
+          text: 'User',
+          icon: loadedIconsMap.user,
         },
       },
     },
@@ -66,8 +66,8 @@ export const setInitialLayout = () => {
 
   const bottomTabs = {
     children: [
-      favouritesTab,
-      mapTab,
+      tabOne,
+      tabTwo,
     ],
     options: {},
   };

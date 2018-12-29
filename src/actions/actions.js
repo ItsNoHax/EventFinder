@@ -1,32 +1,34 @@
-import { API_KEY } from 'react-native-dotenv'; // eslint-disable-line import/no-extraneous-dependencies
+import { toJson } from 'unsplash-js';
+import HTTPClient from '../lib/HTTPClient';
 
-export const REQUEST_EVENTS = 'REQUEST_EVENTS';
-function requestEvents(location) {
+export const REQUEST_IMAGES = 'REQUEST_IMAGES';
+function requestImages(page, orderBy) {
   return {
-    type: REQUEST_EVENTS,
+    type: REQUEST_IMAGES,
     payload: {
-      location,
+      page,
+      orderBy,
     },
   };
 }
 
-export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
-function receiveEvents(location, response) {
+export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
+function receiveImages(response, orderBy) {
   return {
-    type: RECEIVE_EVENTS,
+    type: RECEIVE_IMAGES,
     payload: {
-      location,
-      events: response.events.event,
+      orderBy,
+      images: response,
       receivedAt: Date.now(),
     },
   };
 }
 
-export function fetchEvents(location) {
+export function fetchImages(page = 1, amount = 15, orderBy = 'latest') {
   return (dispatch) => {
-    dispatch(requestEvents(location));
-    return fetch(`http://api.eventful.com/json/events/search?app_key=${API_KEY}&location=${location}`)
-      .then(response => response.json())
-      .then(json => dispatch(receiveEvents(location, json)));
+    dispatch(requestImages(page, orderBy));
+    return HTTPClient.photos.listCuratedPhotos(page, amount, orderBy)
+      .then(toJson)
+      .then(json => dispatch(receiveImages(json, orderBy)));
   };
 }

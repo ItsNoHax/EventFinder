@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Card from './Card';
 
-class EventsList extends Component {
+class ImagesList extends Component {
 
   static propTypes = {
     data: PropTypes.instanceOf(Array).isRequired,
@@ -42,4 +42,4 @@ class EventsList extends Component {
 
 }
 
-export default EventsList;
+export default ImagesList;

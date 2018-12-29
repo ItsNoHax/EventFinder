@@ -7,8 +7,8 @@ const loadedIconsMap = {};
  * @returns {Promise} Returns a promise that resolves when all the icons are loaded into memory.
  */
 async function loadIcons() {
-  loadedIconsMap.map = await Icon.getImageSource('map', 24, 'white');
-  loadedIconsMap.heart = await Icon.getImageSource('heart', 24, 'white');
+  loadedIconsMap.trending = await Icon.getImageSource('trending-up', 24, 'white');
+  loadedIconsMap.user = await Icon.getImageSource('user', 24, 'white');
 }
 
 export { loadedIconsMap, loadIcons };

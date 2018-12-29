@@ -3,16 +3,16 @@ import { Navigation } from 'react-native-navigation';
 import { SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchEvents as fetchEventsAction } from '../actions/actions';
-import { getEvents } from '../selectors/eventSelectors';
+import { fetchImages as fetchImagesAction } from '../actions/actions';
+import { getAllImages } from '../selectors/imagesSelectors';
 import commonStyles from '../styles/common';
-import EventsList from '../components/EventsList';
+import ImagesList from '../components/ImagesList';
 
-class FavouriteScreen extends Component {
+class GalleryScreen extends Component {
 
   static propTypes = {
-    fetchEvents: PropTypes.func.isRequired,
-    events: PropTypes.instanceOf(Array).isRequired,
+    fetchImages: PropTypes.func.isRequired,
+    images: PropTypes.instanceOf(Array).isRequired,
   }
 
   constructor(props) {
@@ -22,16 +22,16 @@ class FavouriteScreen extends Component {
   }
 
   componentDidAppear() {
-    const { fetchEvents } = this.props;
-    fetchEvents('Amsterdam');
+    const { fetchImages } = this.props;
+    fetchImages();
   }
 
   render() {
-    const { events } = this.props;
+    const { images } = this.props;
     return (
       <SafeAreaView style={commonStyles.flexContainer}>
-        <EventsList
-          data={events}
+        <ImagesList
+          data={images}
         />
       </SafeAreaView>
     );
@@ -40,13 +40,11 @@ class FavouriteScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-  events: getEvents(state),
+  images: getAllImages(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchEvents: (location) => {
-    dispatch(fetchEventsAction(location));
-  },
+  fetchImages: location => dispatch(fetchImagesAction(location)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavouriteScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(GalleryScreen);
