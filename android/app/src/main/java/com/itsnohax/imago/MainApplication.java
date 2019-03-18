@@ -1,6 +1,7 @@
 package com.itsnohax.imago;
 
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.dylanvann.fastimage.FastImageViewPackage;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactNativeHost;
@@ -19,7 +20,8 @@ public class MainApplication extends NavigationApplication {
     @Override
     public List<ReactPackage> createAdditionalReactPackages() {
         return Arrays.<ReactPackage>asList(
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new FastImageViewPackage()
         );
     }
     @Override
