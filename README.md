@@ -1,2 +1,13 @@
 # Imago
-&lt;>&lt;
+
+Image art app using the Unsplash API and showcasing the strength of react-native-navigation.
+
+### Installation instructions
+
+Create a .env file inside your root directory with the following keys:
+```
+ // Register at: https://unsplash.com/developers
+ UNSPLASH_ACCESS_KEY=
+ UNSPLASH_SECRET_KEY=
+```
+
