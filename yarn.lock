@@ -5258,10 +5258,10 @@ react-native-fast-image@^5.2.0:
   resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-5.2.0.tgz#6730eb06951ea6f9a79abe02a733bc05b7a73412"
   integrity sha512-S+2gmv9HfLc7CGjjnQ3kO/QoZD9BJnjfwWhsJWgjEvaeOPbpHZaXSUkINSqLcHD5KIHcYidu+U2lgXdEv4Jamg==
 
-react-native-navigation@^2.14.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.14.0.tgz#d453dc92031ffaf7951f741a733bdc969a1670ea"
-  integrity sha512-xfBnEjQDlH6AXgDIw+a917n/AUDKQJ72Bnro0zXHdHHd4Ty8s5AfF8jhfH/9MHmKWAJxl+uHy1JX7Xt25v5hxg==
+react-native-navigation@^2.26.4:
+  version "2.26.4"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.26.4.tgz#cd1324fe4dce7968f2b6970bbce8f2df72fe4e2a"
+  integrity sha512-mgdEDW5l0tJC5R0j9SN0ftG0FMhftMfTxqgfI2qoKbbytUJZ11Hw+rWj40iB8o+lDSCIbdFfIb6tBp4zCVYdTA==
   dependencies:
     hoist-non-react-statics "3.x.x"
     lodash "4.17.x"

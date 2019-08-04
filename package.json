@@ -14,7 +14,7 @@
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-fast-image": "^5.2.0",
-    "react-native-navigation": "^2.14.0",
+    "react-native-navigation": "^2.26.4",
     "react-native-vector-icons": "^6.1.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
