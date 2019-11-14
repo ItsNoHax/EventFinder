@@ -22,7 +22,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "unsplash-js": "^4.8.0"
+    "unsplash-js": "^6.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",

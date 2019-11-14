@@ -2,7 +2,7 @@ import { UNSPLASH_ACCESS_KEY, UNSPLASH_SECRET_KEY } from 'react-native-dotenv'; 
 import Unsplash from 'unsplash-js/native';
 
 const unsplash = new Unsplash({
-  applicationId: `${UNSPLASH_ACCESS_KEY}`,
+  accessKey: `${UNSPLASH_ACCESS_KEY}`,
   secret: `${UNSPLASH_SECRET_KEY}`,
 });
 

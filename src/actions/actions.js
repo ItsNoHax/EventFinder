@@ -27,7 +27,7 @@ function receiveImages(response, orderBy) {
 export function fetchImages(page = 1, amount = 15, orderBy = 'latest') {
   return (dispatch) => {
     dispatch(requestImages(page, orderBy));
-    return HTTPClient.photos.listCuratedPhotos(page, amount, orderBy)
+    return HTTPClient.photos.listPhotos(page, amount, orderBy)
       .then(toJson)
       .then(json => dispatch(receiveImages(json, orderBy)));
   };
