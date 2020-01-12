@@ -1,4 +1,7 @@
 {
-  "presets": ["react-native", "module:react-native-dotenv"],
+  "presets": [
+    "module:metro-react-native-babel-preset",
+    "module:react-native-dotenv"
+  ],
   "sourceMaps": true
 }
