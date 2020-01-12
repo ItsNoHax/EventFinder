@@ -8,8 +8,8 @@
     "clean": "node scripts/clean.js"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^3.0.1",
-    "lodash": "^4.17.11",
+    "hoist-non-react-statics": "^3.3.1",
+    "lodash": "^4.17.15",
     "prop-types": "^15.6.2",
     "react": "16.4.1",
     "react-native": "0.56.0",
@@ -17,9 +17,9 @@
     "react-native-navigation": "^2.26.4",
     "react-native-vector-icons": "^6.1.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
+    "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-persist": "^5.10.0",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "unsplash-js": "^6.0.0"
