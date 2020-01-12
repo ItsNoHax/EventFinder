@@ -1,30 +1,52 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Dimensions, StyleSheet, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
 
-const Card = ({ item }) => (
-  <View style={styles.cardContainer}>
-    <Text>{item.title}</Text>
-    <Text>{item.city_name}</Text>
-    <Image
-      resizeMethod="auto"
-      resizeMode="contain"
-      style={{ width: 300, height: 200, backgroundColor: 'transparent' }}
-      source={{ uri: item.image ? item.image.medium.url : 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-    />
-  </View>
-);
+import FastImage from 'react-native-fast-image';
+
+const Card = ({ item, onPress }) => {
+  const { width } = Dimensions.get('screen');
+  return (
+    <TouchableHighlight
+      onPress={onPress}
+      style={styles.cardContainer}
+    >
+      <View>
+        <View style={styles.imageContainer}>
+          <FastImage
+            resizeMode={FastImage.resizeMode.contain}
+            style={{ height: 200, width: width - 20, backgroundColor: 'transparent' }}
+            source={{ uri: item.urls && item.urls.regular ? item.urls.regular : 'https://Facebook.github.io/react-native/docs/assets/favicon.png' }}
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text>{item.description}</Text>
+          <Text>{item.likes}</Text>
+        </View>
+      </View>
+    </TouchableHighlight>
+  );
+};
 
 Card.propTypes = {
   item: PropTypes.instanceOf(Object).isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
   cardContainer: {
-    height: 300,
-    backgroundColor: 'green',
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'white',
     margin: 10,
     borderRadius: 10,
+    elevation: 3,
+  },
+  imageContainer: {
+    flex: 7,
+  },
+  textContainer: {
+    flex: 3,
   },
 });
 

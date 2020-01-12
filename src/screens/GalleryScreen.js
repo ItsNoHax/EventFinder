@@ -13,6 +13,7 @@ class GalleryScreen extends Component {
   static propTypes = {
     fetchImages: PropTypes.func.isRequired,
     images: PropTypes.instanceOf(Array).isRequired,
+    componentId: PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -26,12 +27,26 @@ class GalleryScreen extends Component {
     fetchImages();
   }
 
+  onPressCard = (item) => {
+    const { componentId } = this.props;
+
+    Navigation.push(componentId, {
+      component: {
+        name: 'imago.SingleImageViewScreen',
+        passProps: {
+          item,
+        },
+      },
+    });
+  }
+
   render() {
     const { images } = this.props;
     return (
       <SafeAreaView style={commonStyles.flexContainer}>
         <ImagesList
           data={images}
+          onPressCard={this.onPressCard}
         />
       </SafeAreaView>
     );

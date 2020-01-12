@@ -8,20 +8,25 @@ class ImagesList extends Component {
 
   static propTypes = {
     data: PropTypes.instanceOf(Array).isRequired,
+    onPressCard: PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props);
-    this.state = { selected: [] };
+    this.state = { };
   }
 
   keyExtractor = item => item.id;
 
-  renderItem = ({ item }) => (
-    <Card
-      item={item}
-    />
-  )
+  renderItem = ({ item }) => {
+    const { onPressCard } = this.props;
+    return (
+      <Card
+        item={item}
+        onPress={() => onPressCard(item)}
+      />
+    );
+  }
 
   render() {
     const { data } = this.props;
