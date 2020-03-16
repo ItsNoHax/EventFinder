@@ -1,34 +1,16 @@
 import { Navigation } from 'react-native-navigation';
-import { persistStore as persistStoreRaw } from 'redux-persist';
-import store from './src/store/store';
+import store, { persist } from './src/store/store';
 import { loadIcons } from './src/lib/AppIcons';
 import { registerScreens } from './src/screens/screens';
 import { setInitialLayout } from './src/NavigationController';
+import Flags from './src/Flags';
 
-
-/**
- * Wait till our store is persisted
- * @param {store} storeToPersist - The redux store to persist
- * @returns {Promise} - Promise that resolves when the store is rehydrated
- */
-const persistStore = storeToPersist => new Promise((resolve) => {
-  persistStoreRaw(storeToPersist, undefined, () => {
-    resolve();
-  });
-});
-
-/**
- * We register screens
- *  then we wait for
- *    - Store to be rehydrated
- *    - Icons to be loaded.
- * and then we finally initialize
- * layout accordingly.
- */
-async function bootstrap() {
-  registerScreens(store);
-
-  await Promise.all([loadIcons(), persistStore(store)]);
+async function onAppRegisterLaunch() {
+  if (Flags.INITIAL_LAUNCH) {
+    registerScreens(store);
+    await Promise.all([loadIcons(), persist(store)]);
+    Flags.INITIAL_LAUNCH = false;
+  }
 
   setInitialLayout();
 }
@@ -40,7 +22,5 @@ async function bootstrap() {
  * (For example by pressing back button on the
  * root screen)
  */
-Navigation.events().registerAppLaunchedListener(() => {
-  bootstrap();
-});
+Navigation.events().registerAppLaunchedListener(() => { onAppRegisterLaunch(); });
 
