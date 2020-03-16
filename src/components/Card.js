@@ -1,32 +1,26 @@
 import React from 'react';
-import { View, Text, Dimensions, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
 
 import FastImage from 'react-native-fast-image';
 
-const Card = ({ item, onPress }) => {
-  const { width } = Dimensions.get('screen');
-  return (
-    <TouchableHighlight
-      onPress={onPress}
-      style={styles.cardContainer}
-    >
-      <View>
-        <View style={styles.imageContainer}>
-          <FastImage
-            resizeMode={FastImage.resizeMode.contain}
-            style={{ height: 200, width: width - 20, backgroundColor: 'transparent' }}
-            source={{ uri: item.urls && item.urls.regular ? item.urls.regular : 'https://Facebook.github.io/react-native/docs/assets/favicon.png' }}
-          />
-        </View>
-        <View style={styles.textContainer}>
-          <Text>{item.description}</Text>
-          <Text>{item.likes}</Text>
-        </View>
+const Card = ({ item, onPress }) => (
+  <TouchableHighlight
+    onPress={onPress}
+    style={styles.cardContainer}
+  >
+    <View>
+      <FastImage
+        resizeMode={FastImage.resizeMode.stretch}
+        style={[styles.imageStyle]}
+        source={{ uri: item.urls && item.urls.regular ? item.urls.regular : 'https://Facebook.github.io/react-native/docs/assets/favicon.png' }}
+      />
+      <View style={styles.absoluteTextContainer}>
+        <Text style={styles.descriptionText}>{item.description}</Text>
       </View>
-    </TouchableHighlight>
-  );
-};
+    </View>
+  </TouchableHighlight>
+);
 
 Card.propTypes = {
   item: PropTypes.instanceOf(Object).isRequired,
@@ -39,14 +33,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     margin: 10,
-    borderRadius: 10,
-    elevation: 3,
+    borderRadius: 18,
+    elevation: 8,
   },
-  imageContainer: {
-    flex: 7,
+  imageStyle: {
+    height: 240,
+    borderRadius: 18,
+    backgroundColor: 'transparent',
   },
-  textContainer: {
-    flex: 3,
+  absoluteTextContainer: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 1.0)',
+    bottom: 12,
+    left: 12,
+  },
+  descriptionText: {
+    color: 'white',
   },
 });
 
